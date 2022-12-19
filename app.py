@@ -33,7 +33,7 @@ page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Pred
 page = st.radio('Navigation',page_names)
 st.write("Welcome to the Project")
 
-if page = "Blurred or Not Blurred Prediction":
+if page == "Blurred or Not Blurred Prediction":
     st.title("""
          Image Blurriness Occluded
          """)
