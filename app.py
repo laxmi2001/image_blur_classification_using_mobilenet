@@ -28,6 +28,10 @@ import os
 from io import BytesIO
 import h5py
 
+
+st.set_page_config(
+    page_title = "Choose the options"
+)
 st.title("""
          Image Blurriness Occluded
          """)
