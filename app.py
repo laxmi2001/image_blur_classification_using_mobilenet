@@ -32,8 +32,10 @@ st.title("""
          Image Blurriness Occluded
          """)
 st.subheader("Prediction of Blur or NotBlur Image")
-#with st.sidebar:
-    #st.image
+images = ["blur1.png","blurimg2.png","blurimg3.png","blurimg4.png","images_11.png"]
+with st.sidebar:
+    st.write("choose an image")
+    clicked = st.image_select("",images,key='click_images')
 model_file_path = "mobile_net_occ.h5"
 
 ##Blurriness Features
