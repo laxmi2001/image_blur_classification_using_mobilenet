@@ -62,7 +62,8 @@ def blurr_predict(img_iter):
   predicted_label = threshold(variance_score, 1)
   return predicted_label,variance_score
 
-image_path = "images_11.jpeg"
+#image_path = "images_11.jpeg"
+image_path = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
 predicted_label,variance_score = blurr_predict(image_path)
 st.header(predicted_label)
 #st.("The image is", '\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" +str(round(variance_score,2)))
