@@ -31,7 +31,7 @@ import h5py
 st.title("""
          Image Blurriness Occluded
          """)
-
+st.subheader("Prediction of Blur or NotBlur Image")
 model_file_path = "mobile_net_occ.h5"
 
 ##Blurriness Features
@@ -66,7 +66,7 @@ def blurr_predict(img_iter):
 
 #image_path = "images_11.jpeg"
 file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-st.subheader("Prediction of Blur or NotBlur Image")
+
 if file is None:
     st.write("Please upload an image file")
 else:
