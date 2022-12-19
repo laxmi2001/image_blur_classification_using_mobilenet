@@ -80,4 +80,47 @@ else:
     #st.header(predicted_label)
     #st.header(str(round(variance_score,2)))
     string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
-    st.header(string)
+    st.subheader(string)
+
+st.header("Prediction of Occluded or not Occluded ")
+plt. figure(figsize=(10,9))
+def occ_predict(img_content):
+    im = []
+    image=cv2.imread(img_content)
+    imgplot = plt.imshow(image)
+    plt.show()
+    img = Image.fromarray(image, 'RGB') 
+    resize_image = img.resize((50, 50))
+    im.append(np.array(resize_image))
+    fv = np.array(im)
+    np_array_img = fv.astype('float32') / 255
+    model_gcs = h5py.File(model_file_path, 'r')
+    myModel = load_model(model_gcs)
+    prediction = myModel.predict(np_array_img)
+    score = prediction[0][0].item()
+    thresh = 0.5
+    if score > thresh:
+        return "Not Occluded",score
+    else:
+        return "Occluded",score
+
+f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+st.subheader("Prediction of Blur or NotBlur Image")
+images1 = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
+with st.sidebar:
+    st.write("choose an image")
+    st.image(images)
+
+if f is None:
+    st.write("Please upload an image file")
+else:
+    image1= Image.open(f)
+    st.image(image1,use_column_width = True)
+    predicted_label1,variance_score1 = occ_predict(f)
+    #st.header(predicted_label)
+    #st.header(str(round(variance_score,2)))
+    string1 = "The image is," + str(predicted_label1) + " with the score value of  " + str(round(variance_score1,2))
+    st.subheader(string1)
+
+#predicted_label, score = occ_predict("/content/drive/MyDrive/Occulded.jpg")
+#print("The image is", '\033[1m' + predicted_label1 + '\033[0m', "with the score value of" ,round(score,2))
