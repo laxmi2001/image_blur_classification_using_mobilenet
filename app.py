@@ -111,8 +111,8 @@ else:
             return "Occluded",score
 
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-    st.subheader("Prediction of Blur or NotBlur Image")
-    images1 = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
+    st.subheader("Prediction of Occluded or Not Occluded")
+    images1 = ["img1.png","img2.png","img3.png","img4.png"]
     with st.sidebar:
         st.write("choose an image")
         st.image(images1)
