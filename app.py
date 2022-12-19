@@ -32,7 +32,7 @@ st.title("""
          Image Blurriness Occluded
          """)
 st.subheader("Prediction of Blur or NotBlur Image")
-images = ["blur1.png","blurimg2.png","blurimg3.png","blurimg4.png","images_11.png"]
+images = ["blur1.png","blurimg2.png","blurimg3.png","blurimg4.png","images_11.jpeg"]
 with st.sidebar:
     st.write("choose an image")
     st.image(images)
