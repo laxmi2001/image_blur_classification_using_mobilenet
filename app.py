@@ -29,102 +29,104 @@ from io import BytesIO
 import h5py
 
 
-st.set_page_config(
-    page_title = "Choose the options"
-)
-st.title("""
+page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
+page = st.radio('Navigation',page_names)
+st.write("Welcome to the Project")
+
+if page = "Blurred or Not Blurred Prediction":
+    st.title("""
          Image Blurriness Occluded
          """)
-st.subheader("Prediction of Blur or NotBlur Image")
-images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
-with st.sidebar:
-    st.write("choose an image")
-    st.image(images)
-model_file_path = "mobile_net_occ.h5"
+    st.subheader("Prediction of Blur or NotBlur Image")
+    images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
+    with st.sidebar:
+        st.write("choose an image")
+        st.image(images)
+    model_file_path = "mobile_net_occ.h5"
 
-##Blurriness Features
+    ##Blurriness Features
 
-plt. figure(figsize=(10,9))
-def variance_of_laplacian(image):
-    return cv2.Laplacian(image, cv2.CV_64F).var()
+    plt. figure(figsize=(10,9))
+    def variance_of_laplacian(image):
+        return cv2.Laplacian(image, cv2.CV_64F).var()
 
-def threshold(value, thresh):
-    if value > thresh:
-        return "Not Blur"
-    else:
-        return "Blur"  
-def blurr_predict(img_iter):
+    def threshold(value, thresh):
+        if value > thresh:
+            return "Not Blur"
+        else:
+            return "Blur"  
+    def blurr_predict(img_iter):
   
-  def make_prediction(img_content):
-    pil_image = Image.open(img_content)
-    imgplot = plt.imshow(pil_image)
-    #st.image(pil_image)
-    plt.show()
-    gray_cvimage = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2GRAY)
-    #print(gray_cvimage)
-    variance_laplacian = variance_of_laplacian(gray_cvimage)
-    #print(variance_laplacian)
-    return variance_laplacian
+      def make_prediction(img_content):
+        pil_image = Image.open(img_content)
+        imgplot = plt.imshow(pil_image)
+        #st.image(pil_image)
+        plt.show()
+        gray_cvimage = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2GRAY)
+        #print(gray_cvimage)
+        variance_laplacian = variance_of_laplacian(gray_cvimage)
+        #print(variance_laplacian)
+        return variance_laplacian
 
-  variance_score = make_prediction(img_iter)
-  thresh = 2000
-  variance_score = variance_score/thresh
-  predicted_label = threshold(variance_score, 1)
-  return predicted_label,variance_score
+      variance_score = make_prediction(img_iter)
+      thresh = 2000
+      variance_score = variance_score/thresh
+      predicted_label = threshold(variance_score, 1)
+      return predicted_label,variance_score
 
-#image_path = "images_11.jpeg"
-file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+    #image_path = "images_11.jpeg"
+    file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
 
-if file is None:
-    st.write("Please upload an image file")
-else:
-    image= Image.open(file)
-    st.image(image,use_column_width = True)
-    predicted_label,variance_score = blurr_predict(file)
-    #st.header(predicted_label)
-    #st.header(str(round(variance_score,2)))
-    string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
-    st.subheader(string)
-
-st.header("Prediction of Occluded or not Occluded ")
-plt. figure(figsize=(10,9))
-def occ_predict(img_content):
-    im = []
-    image=cv2.imread(img_content)
-    imgplot = plt.imshow(image)
-    plt.show()
-    img = Image.fromarray(image, 'RGB') 
-    resize_image = img.resize((50, 50))
-    im.append(np.array(resize_image))
-    fv = np.array(im)
-    np_array_img = fv.astype('float32') / 255
-    model_gcs = h5py.File(model_file_path, 'r')
-    myModel = load_model(model_gcs)
-    prediction = myModel.predict(np_array_img)
-    score = prediction[0][0].item()
-    thresh = 0.5
-    if score > thresh:
-        return "Not Occluded",score
+    if file is None:
+        st.write("Please upload an image file")
     else:
-        return "Occluded",score
-
-f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-st.subheader("Prediction of Blur or NotBlur Image")
-images1 = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
-with st.sidebar:
-    st.write("choose an image")
-    st.image(images)
-
-if f is None:
-    st.write("Please upload an image file")
+        image= Image.open(file)
+        st.image(image,use_column_width = True)
+        predicted_label,variance_score = blurr_predict(file)
+        #st.header(predicted_label)
+        #st.header(str(round(variance_score,2)))
+        string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
+        st.subheader(string)
 else:
-    image1= Image.open(f)
-    st.image(image1,use_column_width = True)
-    predicted_label1,variance_score1 = occ_predict(f)
-    #st.header(predicted_label)
-    #st.header(str(round(variance_score,2)))
-    string1 = "The image is," + str(predicted_label1) + " with the score value of  " + str(round(variance_score1,2))
-    st.subheader(string1)
+    st.title("Prediction of Occluded or not Occluded ")
+    plt. figure(figsize=(10,9))
+    def occ_predict(img_content):
+        im = []
+        image=cv2.imread(img_content)
+        imgplot = plt.imshow(image)
+        plt.show()
+        img = Image.fromarray(image, 'RGB') 
+        resize_image = img.resize((50, 50))
+        im.append(np.array(resize_image))
+        fv = np.array(im)
+        np_array_img = fv.astype('float32') / 255
+        model_gcs = h5py.File(model_file_path, 'r')
+        myModel = load_model(model_gcs)
+        prediction = myModel.predict(np_array_img)
+        score = prediction[0][0].item()
+        thresh = 0.5
+        if score > thresh:
+            return "Not Occluded",score
+        else:
+            return "Occluded",score
+
+    f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+    st.subheader("Prediction of Blur or NotBlur Image")
+    images1 = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
+    with st.sidebar:
+        st.write("choose an image")
+        st.image(images)
+
+    if f is None:
+        st.write("Please upload an image file")
+    else:
+        image1= Image.open(f)
+        st.image(image1,use_column_width = True)
+        predicted_label1,variance_score1 = occ_predict(f)
+        #st.header(predicted_label)
+        #st.header(str(round(variance_score,2)))
+        string1 = "The image is," + str(predicted_label1) + " with the score value of  " + str(round(variance_score1,2))
+        st.subheader(string1)
 
 #predicted_label, score = occ_predict("/content/drive/MyDrive/Occulded.jpg")
 #print("The image is", '\033[1m' + predicted_label1 + '\033[0m', "with the score value of" ,round(score,2))
