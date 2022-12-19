@@ -48,6 +48,7 @@ def blurr_predict(img_iter):
   def make_prediction(img_content):
     pil_image = Image.open(img_content)
     imgplot = plt.imshow(pil_image)
+    st.pyplot(imgplot)
     plt.show()
     gray_cvimage = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2GRAY)
     #print(gray_cvimage)
