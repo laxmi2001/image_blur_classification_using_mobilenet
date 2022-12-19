@@ -32,6 +32,8 @@ st.title("""
          Image Blurriness Occluded
          """)
 st.subheader("Prediction of Blur or NotBlur Image")
+#with st.sidebar:
+    #st.image
 model_file_path = "mobile_net_occ.h5"
 
 ##Blurriness Features
