@@ -32,7 +32,7 @@ st.title("""
          Image Blurriness Occluded
          """)
 st.subheader("Prediction of Blur or NotBlur Image")
-images = ["blur1.png","blurimg2.png","blurimg3.png","blurimg4.png","images_11.jpeg"]
+images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
 with st.sidebar:
     st.write("choose an image")
     st.image(images)
@@ -80,4 +80,4 @@ else:
     #st.header(predicted_label)
     #st.header(str(round(variance_score,2)))
     string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
-    st.markdown(string)
+    st.header(string)
