@@ -28,7 +28,9 @@ import os
 from io import BytesIO
 import h5py
 
-st.title('Image Bluriness Occulded')
+st.title("""
+         Image Blurriness Occluded
+         """)
 
 model_file_path = "mobile_net_occ.h5"
 
@@ -63,14 +65,13 @@ def blurr_predict(img_iter):
   return predicted_label,variance_score
 
 #image_path = "images_11.jpeg"
-f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-if f is not None:
-    image_path = f.name
-    st.image(image_path)
+file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+if file is None:
+    st.write("Please upload an image file")
 else:
-    image_path = None
-    
-predicted_label,variance_score = blurr_predict(image_path)
-st.header(predicted_label)
-st.header(str(round(variance_score,2)))
-#st.("The image is", '\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" +str(round(variance_score,2)))
+    image= Image.open(file)
+    st.image(image,use_column_width = True)
+    predicted_label,variance_score = blurr_predict(file)
+    st.header(predicted_label)
+    st.header(str(round(variance_score,2)))
+    #st.("The image is", '\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" +str(round(variance_score,2)))
