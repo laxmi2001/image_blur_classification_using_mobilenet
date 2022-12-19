@@ -64,5 +64,5 @@ def blurr_predict(img_iter):
 
 image_path = "images_11.jpeg"
 predicted_label,variance_score = blurr_predict(image_path)
-st.header(str(predicted_label))
+st.header(predicted_label)
 #st.("The image is", '\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" +str(round(variance_score,2)))
