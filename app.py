@@ -66,6 +66,7 @@ def blurr_predict(img_iter):
 
 #image_path = "images_11.jpeg"
 file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+st.subheader("Prediction of Blur or NotBlur Image")
 if file is None:
     st.write("Please upload an image file")
 else:
@@ -75,4 +76,4 @@ else:
     #st.header(predicted_label)
     #st.header(str(round(variance_score,2)))
     string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
-    st.success(string)
+    st.markdown(string)
