@@ -30,7 +30,7 @@ import h5py
 
 
 page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
-page = st.radio('Navigation',page_names)
+page = st.sidebar.radio('Navigation',page_names)
 st.write("Welcome to the Project")
 
 if page == "Blurred or Not Blurred Prediction":
@@ -115,7 +115,7 @@ else:
     images1 = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
     with st.sidebar:
         st.write("choose an image")
-        st.image(images)
+        st.image(images1)
 
     if f is None:
         st.write("Please upload an image file")
