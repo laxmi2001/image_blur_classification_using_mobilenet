@@ -74,5 +74,5 @@ else:
     predicted_label,variance_score = blurr_predict(file)
     #st.header(predicted_label)
     #st.header(str(round(variance_score,2)))
-    string = "The image is,"+'\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" + str(round(variance_score,2))
+    string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
     st.success(string)
