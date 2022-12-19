@@ -48,7 +48,7 @@ def blurr_predict(img_iter):
   def make_prediction(img_content):
     pil_image = Image.open(img_content)
     imgplot = plt.imshow(pil_image)
-    st.image(pil_image)
+    #st.image(pil_image)
     plt.show()
     gray_cvimage = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2GRAY)
     #print(gray_cvimage)
@@ -63,7 +63,14 @@ def blurr_predict(img_iter):
   return predicted_label,variance_score
 
 #image_path = "images_11.jpeg"
-image_path = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+if f is not None:
+    image_path = f.name
+    st.image(image_path)
+else:
+    image_path = None
+    
 predicted_label,variance_score = blurr_predict(image_path)
 st.header(predicted_label)
+st.header(str(round(variance_score,2)))
 #st.("The image is", '\033[1m' + str(predicted_label) + '\033[0m', "with the score value of" +str(round(variance_score,2)))
