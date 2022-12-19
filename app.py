@@ -125,7 +125,7 @@ else:
         predicted_label1,variance_score1 = occ_predict(f)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
-        string1 = "The image is," + str(predicted_label1) + " with the score value of  " + str(round(variance_score1,2))
+        string1 = "The image is," + predicted_label1 + " with the score value of  " + str(round(variance_score1,2))
         st.subheader(string1)
 
 #predicted_label, score = occ_predict("/content/drive/MyDrive/Occulded.jpg")
