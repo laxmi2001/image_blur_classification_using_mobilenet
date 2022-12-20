@@ -96,13 +96,13 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(imgpath):
         im = []
-        pil_image = Image.open(imgpath)
-        #st.header(imgpath)
-        #image=cv2.imread(imgpath)
-        
-        #imgplot = plt.imshow(image)
-        #plt.show()
-        img = Image.fromarray(pil_image, 'RGB') 
+        image1 = plt.imread(img_content)
+
+        st.write(img_content)
+        st.write(type(img_content))
+
+        img = Image.fromarray(image1, 'RGB') 
+        st.write(type(image1))
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
         fv = np.array(im)
@@ -111,6 +111,7 @@ else:
         myModel = load_model(model_gcs)
         prediction = myModel.predict(np_array_img)
         score = prediction[0][0].item()
+        
         thresh = 0.5
         if score > thresh:
             return "Not Occluded",score
