@@ -25,6 +25,7 @@ import skimage
 from skimage.transform import resize
 import random
 import os
+import io
 from io import BytesIO,StringIO
 from pathlib import Path
 import h5py
