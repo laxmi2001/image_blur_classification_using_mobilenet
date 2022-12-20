@@ -129,7 +129,7 @@ else:
         #f = stringio.read()
         st.write(f)
         image1= Image.open(f)
-        st.header('hello')
+        st.write(type(image1))
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
         #st.write(image_path)
