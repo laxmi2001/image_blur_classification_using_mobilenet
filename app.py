@@ -94,15 +94,15 @@ if page == "Blurred or Not Blurred Prediction":
 else:
     st.title("Prediction of Occluded or not Occluded ")
     #plt. figure(figsize=(10,9))
-    def occ_predict(imgpath):
+    def occ_predict(img_content):
         im = []
         image1 = plt.imread(img_content)
 
-        st.write(img_content)
-        st.write(type(img_content))
+        #st.write(img_content)
+        #st.write(type(img_content))
 
         img = Image.fromarray(image1, 'RGB') 
-        st.write(type(image1))
+        #st.write(type(image1))
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
         fv = np.array(im)
