@@ -96,7 +96,7 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(img_content):
         im = []
-        image1 = plt.imread(img_content)
+        image1 = matplotlib.pyplot.imread(img_content)
 
         #st.write(img_content)
         #st.write(type(img_content))
@@ -132,7 +132,7 @@ else:
         #stringio = StringIO(f.getvalue())
         #f = stringio.read()
         image1= Image.open(f)
-        st.write(type(f.name))
+        #st.write(type(f.name))
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
         #st.write(image_path)
