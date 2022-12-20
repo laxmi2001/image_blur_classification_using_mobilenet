@@ -94,7 +94,7 @@ else:
     def occ_predict(img_content):
         im = []
         st.write(img_content)
-        image=cv2.imread(img_content)
+        image=cv2.imread(img_content,cv2.COLOR_RGB2YCrCb)
         #imgplot = plt.imshow(image)
         #plt.show()
         img = Image.fromarray(image, 'RGB') 
