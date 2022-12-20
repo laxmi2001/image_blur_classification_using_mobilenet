@@ -134,13 +134,9 @@ else:
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
         #st.write(image_path)
-        path = f
-        file1 = Image.open(io.BytesIO(image1.get_bytes()))
-        compath = os.path.join(path,file1)
-        print(file1)
-        file1.save(compath,'png')
         
-        predicted_label,variance_score = occ_predict(file1)
+        
+        predicted_label,variance_score = occ_predict(f.name)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
