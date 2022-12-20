@@ -96,6 +96,7 @@ else:
     def occ_predict(imgpath):
         im = []
         image=cv2.imread(imgpath)
+        st.write(type(image))
         #imgplot = plt.imshow(image)
         #plt.show()
         img = Image.fromarray(image, 'RGB') 
