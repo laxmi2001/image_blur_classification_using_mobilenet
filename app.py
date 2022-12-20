@@ -119,7 +119,7 @@ else:
             return "Occluded",score
 
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-    #st.write(f)
+    st.write(f)
     #st.subheader("Prediction of Occluded or Not Occluded")
     images1 = ["img1.png","img2.png","img3.png","img4.png"]
     with st.sidebar:
@@ -128,10 +128,10 @@ else:
 
     if f is None:
         st.write("Please upload an image file")
-    else:
+    else:        
         #stringio = StringIO(f.getvalue())
         #f = stringio.read()
-        image1= Image.open(f)
+        image1= Image.open(f.name)
         #st.write(type(f.name))
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
