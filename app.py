@@ -124,7 +124,7 @@ else:
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
         image_path = f.name
-        predicted_label,variance_score = occ_predict(image_path)
+        predicted_label,variance_score = occ_predict("Occulded.jpg")
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
