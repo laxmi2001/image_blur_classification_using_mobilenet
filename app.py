@@ -124,7 +124,8 @@ else:
     if f is None:
         st.write("Please upload an image file")
     else:
-        st.write(f.name)
+        f = StringIO(f.getvalue().decode("utf-8"))
+        st.write(f)
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
         image_path = Path(f.name)
