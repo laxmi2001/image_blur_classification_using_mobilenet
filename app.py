@@ -96,12 +96,13 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(imgpath):
         im = []
-        st.header(imgpath)
+        pil_image = Image.open(imgpath)
+        #st.header(imgpath)
         #image=cv2.imread(imgpath)
         
         #imgplot = plt.imshow(image)
         #plt.show()
-        img = Image.fromarray(imgpath, 'RGB') 
+        img = Image.fromarray(pil_image, 'RGB') 
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
         fv = np.array(im)
