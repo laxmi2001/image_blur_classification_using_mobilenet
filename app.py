@@ -111,6 +111,7 @@ else:
             return "Occluded",score
 
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
+    st.write(f)
     st.subheader("Prediction of Occluded or Not Occluded")
     images1 = ["img1.png","img2.png","img3.png","img4.png"]
     with st.sidebar:
