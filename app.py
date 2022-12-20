@@ -95,12 +95,22 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(imgpath):
         im = []
-        imgpath = str(imgpath)
-        image=cv2.imread(imgpath,CV_LOAD_IMAGE_COLOR)
+        import cv2 
+        import os.path
+
+        while not os.path.isfile(imagepath):
+        #ignore if no such file is present.
+            pass
+
+        img = cv2.imread("myImage.jpg", 0)
+
+        cv2.imwrite("result.jpg", img)
+        imgpath = str(result.jpg)
+        image=cv2.imread(imgpath)
         
         #imgplot = plt.imshow(image)
         #plt.show()
-        img = Image.fromarray(image, 'RGB') 
+        img = Image.fromarray(result.jpg, 'RGB') 
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
         fv = np.array(im)
