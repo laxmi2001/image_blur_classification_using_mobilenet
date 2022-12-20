@@ -111,8 +111,8 @@ else:
             return "Occluded",score
 
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
-    st.write(f)
-    st.subheader("Prediction of Occluded or Not Occluded")
+    #st.write(f)
+    #st.subheader("Prediction of Occluded or Not Occluded")
     images1 = ["img1.png","img2.png","img3.png","img4.png"]
     with st.sidebar:
         st.write("choose an image")
@@ -123,10 +123,10 @@ else:
     else:
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
-        predicted_label1,variance_score1 = occ_predict(f)
+        predicted_label,variance_score = occ_predict(image1)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
-        string1 = "The image is," + predicted_label1 + " with the score value of  " + str(round(variance_score1,2))
+        string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
         st.subheader(string1)
 
 #predicted_label, score = occ_predict("/content/drive/MyDrive/Occulded.jpg")
