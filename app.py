@@ -96,11 +96,11 @@ else:
     def occ_predict(imgpath):
         im = []
         st.header(imgpath)
-        image=cv2.imread(imgpath)
+        #image=cv2.imread(imgpath)
         
         #imgplot = plt.imshow(image)
         #plt.show()
-        img = Image.fromarray(image, 'RGB') 
+        img = Image.fromarray(imgpath, 'RGB') 
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
         fv = np.array(im)
@@ -134,7 +134,7 @@ else:
         #image_path = Path(f.name)
         #st.write(image_path)
         
-        predicted_label,variance_score = occ_predict(f.name)
+        predicted_label,variance_score = occ_predict(image1)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
