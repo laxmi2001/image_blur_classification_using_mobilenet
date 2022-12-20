@@ -93,9 +93,9 @@ if page == "Blurred or Not Blurred Prediction":
 else:
     st.title("Prediction of Occluded or not Occluded ")
     #plt. figure(figsize=(10,9))
-    def occ_predict(img_content):
+    def occ_predict(imgpath):
         im = []
-        image=cv2.imread(img_content)
+        image=cv2.imread(imgpath)
         #imgplot = plt.imshow(image)
         #plt.show()
         img = Image.fromarray(image, 'RGB') 
@@ -124,14 +124,14 @@ else:
     if f is None:
         st.write("Please upload an image file")
     else:
-        stringio = StringIO(f.getvalue())
-        f = stringio.read()
+        #stringio = StringIO(f.getvalue())
+        #f = stringio.read()
         st.write(f)
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
-        image_path = Path(f.name)
+        #image_path = Path(f.name)
         st.write(image_path)
-        predicted_label,variance_score = occ_predict(image_path)
+        predicted_label,variance_score = occ_predict(f)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
