@@ -96,7 +96,7 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(img_content):
         im = []
-        image1 = matplotlib.pyplot.imread(img_content)
+        image1 = plt.imread(img_content)
 
         #st.write(img_content)
         #st.write(type(img_content))
