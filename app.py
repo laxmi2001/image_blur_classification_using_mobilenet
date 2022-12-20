@@ -130,7 +130,8 @@ else:
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
-        st.write(image_path)
+        #st.write(image_path)
+        
         predicted_label,variance_score = occ_predict(f)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
