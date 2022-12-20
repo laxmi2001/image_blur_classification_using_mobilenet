@@ -129,11 +129,12 @@ else:
         #f = stringio.read()
         st.write(f)
         image1= Image.open(f)
+        st.header('hello')
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
         #st.write(image_path)
         
-        predicted_label,variance_score = occ_predict(str(f))
+        predicted_label,variance_score = occ_predict(f)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
