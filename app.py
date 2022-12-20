@@ -93,8 +93,8 @@ else:
     def occ_predict(img_content):
         im = []
         image=cv2.imread(img_content)
-        imgplot = plt.imshow(image)
-        plt.show()
+        #imgplot = plt.imshow(image)
+        #plt.show()
         img = Image.fromarray(image, 'RGB') 
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
