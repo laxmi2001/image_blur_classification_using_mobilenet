@@ -92,6 +92,7 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(img_content):
         im = []
+        st.write(img_content)
         image=cv2.imread(img_content)
         #imgplot = plt.imshow(image)
         #plt.show()
@@ -113,7 +114,7 @@ else:
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
     #st.write(f)
     #st.subheader("Prediction of Occluded or Not Occluded")
-    images1 = ["/img1.png","img2.png","img3.png","img4.png"]
+    images1 = ["img1.png","img2.png","img3.png","img4.png"]
     with st.sidebar:
         st.write("choose an image")
         st.image(images1)
@@ -121,10 +122,11 @@ else:
     if f is None:
         st.write("Please upload an image file")
     else:
+        st.write(f.name)
         image1= Image.open(f)
         st.image(image1,use_column_width = True)
         image_path = f.name
-        predicted_label,variance_score = occ_predict(f)
+        predicted_label,variance_score = occ_predict(f.name)
         #st.header(predicted_label)
         #st.header(str(round(variance_score,2)))
         string1 = "The image is," + predicted_label + " with the score value of  " + str(round(variance_score,2))
