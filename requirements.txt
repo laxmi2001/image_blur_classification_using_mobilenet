@@ -6,4 +6,4 @@ matplotlib
 scikit-learn
 scikit-image
 opencv-python
-cv2
+openCV-3.4.16
