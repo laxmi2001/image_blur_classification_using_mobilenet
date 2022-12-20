@@ -124,7 +124,7 @@ else:
     if f is None:
         st.write("Please upload an image file")
     else:
-        stringio = StringIO(f.getvalue().decode("utf-8"))
+        stringio = StringIO(f.getvalue())
         f = stringio.read()
         st.write(f)
         image1= Image.open(f)
