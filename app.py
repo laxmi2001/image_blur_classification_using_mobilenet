@@ -29,6 +29,8 @@ from io import BytesIO,StringIO
 from pathlib import Path
 import h5py
 
+model_file_path = "mobile_net_occ.h5"
+
 
 page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
 page = st.sidebar.radio('Navigation',page_names)
@@ -93,8 +95,7 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(img_content):
         im = []
-        st.write(img_content)
-        image=cv2.imread(img_content,cv2.COLOR_RGB2YCrCb)
+        image=cv2.imread(img_content)
         #imgplot = plt.imshow(image)
         #plt.show()
         img = Image.fromarray(image, 'RGB') 
