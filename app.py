@@ -96,12 +96,13 @@ else:
     #plt. figure(figsize=(10,9))
     def occ_predict(img_content):
         im = []
-        image1 = plt.imread(img_content)
+        image = cv2.imread(img_content)
+        imgplot = plt.show(image)
 
         #st.write(img_content)
         #st.write(type(img_content))
 
-        img = Image.fromarray(image1, 'RGB') 
+        img = Image.fromarray(image, 'RGB') 
         #st.write(type(image1))
         resize_image = img.resize((50, 50))
         im.append(np.array(resize_image))
