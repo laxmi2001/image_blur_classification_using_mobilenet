@@ -42,11 +42,11 @@ if page == "Blurred or Not Blurred Prediction":
          Image Blurriness Occluded
          """)
     st.subheader("Prediction of Blur or NotBlur Image")
-    images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
-    with st.sidebar:
-       st.write("choose an image")
-       st.image(images)
-    model_file_path = "mobile_net_occ.h5"
+    #images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
+    #with st.sidebar:
+     #  st.write("choose an image")
+      # st.image(images)
+    #model_file_path = "mobile_net_occ.h5"
 
     ##Blurriness Features
 
