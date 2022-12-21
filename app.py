@@ -43,10 +43,10 @@ if page == "Blurred or Not Blurred Prediction":
          """)
     st.subheader("Prediction of Blur or NotBlur Image")
     images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
-    #with st.sidebar:
-     #   st.write("choose an image")
-      #  st.image(images)
-    #model_file_path = "mobile_net_occ.h5"
+    with st.sidebar:
+       st.write("choose an image")
+       st.image(images)
+    model_file_path = "mobile_net_occ.h5"
 
     ##Blurriness Features
 
@@ -121,17 +121,17 @@ else:
     f = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
     st.write(f)
     #st.subheader("Prediction of Occluded or Not Occluded")
-    images1 = ["img1.png","img2.png","img3.png","img4.png"]
-    with st.sidebar:
-        st.write("choose an image")
-        st.image(images1)
+    #images1 = ["img1.png","img2.png","img3.png","img4.png"]
+   # with st.sidebar:
+        #st.write("choose an image")
+        #st.image(images1)
 
     if f is None:
         st.write("Please upload an image file")
     else:        
         #stringio = StringIO(f.getvalue())
         #f = stringio.read()
-        image1= Image.open(f.name)
+        image1= Image.open(f)
         #st.write(type(f.name))
         st.image(image1,use_column_width = True)
         #image_path = Path(f.name)
