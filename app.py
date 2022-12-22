@@ -33,7 +33,7 @@ import h5py
 model_file_path = "mobile_net_occ.h5"
 
 
-#page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
+page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
 page = st.sidebar.radio('Navigation',page_names)
 #st.write("Welcome to the Project")
 
