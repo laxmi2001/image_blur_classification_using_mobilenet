@@ -71,11 +71,11 @@ def blurr_predict(img_iter):
         #print(variance_laplacian)
       return variance_laplacian
 
-    variance_score = make_prediction(img_iter)
-    thresh = 2000
-    variance_score = variance_score/thresh
-    predicted_label = threshold(variance_score, 1)
-    return predicted_label,variance_score
+  variance_score = make_prediction(img_iter)
+  thresh = 2000
+  variance_score = variance_score/thresh
+  predicted_label = threshold(variance_score, 1)
+  return predicted_label,variance_score
 
     #image_path = "images_11.jpeg"
 file = st.file_uploader('Upload an Image',type=(["jpeg","jpg","png"]))
