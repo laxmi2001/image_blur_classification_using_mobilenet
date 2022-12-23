@@ -33,15 +33,15 @@ import h5py
 model_file_path = "mobile_net_occ.h5"
 
 
-page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
-page = st.sidebar.radio('Navigation',page_names)
+#page_names = ["Blurred or Not Blurred Prediction","Occluded or Not Occluded Prediction"]
+#page = st.sidebar.radio('Navigation',page_names)
 #st.write("Welcome to the Project")
 
 
 st.title("""
-         Image Blurriness Occluded
+         Prediction of Image Blurriness
          """)
-st.subheader("Prediction of Blur or NotBlur Image")
+#st.subheader("Prediction of Blur or NotBlur Image")
 images = ["blur1.png","blurimg2.png","blurimg3.png","images_11.jpeg"]
 with st.sidebar:
     st.write("choose an image")
