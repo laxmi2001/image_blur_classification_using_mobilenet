@@ -1,5 +1,5 @@
 ---
-title: Image Bluriness Occulded
+title: Image_bluriness_prediction
 emoji: 😻
 colorFrom: yellow
 colorTo: pink
