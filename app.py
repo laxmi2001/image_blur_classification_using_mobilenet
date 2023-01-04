@@ -42,6 +42,12 @@ st.title("""
          Prediction of Image Blurriness
          """)
 #st.subheader("Prediction of Blur or NotBlur Image")
+st.write("""Blurring, or unsharpness, refers to the distortion of the definition of objects in an image,
+            resulting in poor spatial resolution.
+            Image blur is very common in natural photos, arising from different factors such as object motion, 
+            camera lens out-of-focus, and camera shake. In many cases it is undesired, when important regions 
+            are affected and become less sharp; while in other cases it is often desired, when the background is 
+            blurred to make the subject pop out, or motion blur is added to give the photo artistic look """)
 images = ["blur1.png","bird1.jpeg","blurimg3.png","images_11.jpeg"]
 with st.sidebar:
     st.write("choose an image")
@@ -91,3 +97,13 @@ else:
     string = "The image is," + str(predicted_label) + " with the score value of  " + str(round(variance_score,2))
     st.subheader(string)
 
+st.write("""
+For a detailed description please look through our Documentation  
+""")
+
+url = 'https://huggingface.co/spaces/ThirdEyeData/image_bluriness_prediction/blob/main/README.md'
+
+st.markdown(f'''
+<a href={url}><button style="background-color: #668F45;">Documentation</button></a>
+''',
+unsafe_allow_html=True)
