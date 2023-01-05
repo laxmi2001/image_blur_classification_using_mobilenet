@@ -42,12 +42,12 @@ st.title("""
          Prediction of Image Blurriness
          """)
 #st.subheader("Prediction of Blur or NotBlur Image")
-st.write("""Blurring, or unsharpness, refers to the distortion of the definition of objects in an image,
-            resulting in poor spatial resolution.
-            Image blur is very common in natural photos, arising from different factors such as object motion, 
-            camera lens out-of-focus, and camera shake. In many cases it is undesired, when important regions 
-            are affected and become less sharp; while in other cases it is often desired, when the background is 
-            blurred to make the subject pop out, or motion blur is added to give the photo artistic look """)
+st.write("""Blurring refers to the distortion of the definition of objects in an image, resulting in poor spatial resolution.
+Image blur is very common in natural photos, arising from different factors such as object motion, camera lens out-of-focus, and camera shake.
+To detect if an image is blurred or not, the variance of Laplacian is used. The Laplacian of an image identifies edges, 
+and the variance of the same shows how smooth or hard the edge is. Smooth edges mean blurred images, hence sharp images tend to have
+large positive and negative Laplacian. We can use this model for filtering blurred images in all kinds of computer vision projects.
+ """)
 images = ["blur1.png","bird1.jpeg","blurimg3.png","images_11.jpeg"]
 with st.sidebar:
     st.write("choose an image")
